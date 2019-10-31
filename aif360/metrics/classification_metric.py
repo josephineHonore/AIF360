@@ -1,8 +1,3 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
-
 from itertools import product
 
 import numpy as np
@@ -117,7 +112,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups`
                 must be provided at initialization to condition on them.
         """
         return self.binary_confusion_matrix(privileged=privileged)['TP']
@@ -132,7 +127,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.binary_confusion_matrix(privileged=privileged)['FP']
@@ -147,7 +142,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups`
                 must be provided at initialization to condition on them.
         """
         return self.binary_confusion_matrix(privileged=privileged)['FN']
@@ -162,7 +157,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups`
                 must be provided at initialization to condition on them.
         """
         return self.binary_confusion_matrix(privileged=privileged)['TN']
@@ -179,7 +174,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.generalized_binary_confusion_matrix(
@@ -215,7 +210,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups`
                 must be provided at initialization to condition on them.
         """
         return self.generalized_binary_confusion_matrix(
@@ -233,7 +228,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.generalized_binary_confusion_matrix(
@@ -287,7 +282,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['TPR']
@@ -302,7 +297,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['FPR']
@@ -317,7 +312,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups`
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['FNR']
@@ -332,7 +327,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['TNR']
@@ -349,7 +344,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['GTPR']
@@ -364,7 +359,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['GFPR']
@@ -379,7 +374,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups`
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['GFNR']
@@ -394,7 +389,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['GTNR']
@@ -409,7 +404,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['PPV']
@@ -424,7 +419,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['FDR']
@@ -439,7 +434,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['FOR']
@@ -454,7 +449,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['NPV']
@@ -469,7 +464,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return self.performance_measures(privileged=privileged)['ACC']
@@ -484,7 +479,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return 1. - self.accuracy(privileged=privileged)
@@ -584,7 +579,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         condition = self._to_condition(privileged)
@@ -607,7 +602,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         condition = self._to_condition(privileged)
@@ -630,7 +625,7 @@ class ClassificationMetric(BinaryLabelDatasetMetric):
                 meaning this metric is computed over the entire dataset.
 
         Raises:
-            AttributeError: `privileged_groups` or `unprivileged_groups` must be
+            AttributeError: `privileged_groups` or `unprivileged_groups` 
                 must be provided at initialization to condition on them.
         """
         return (self.num_pred_positives(privileged=privileged)

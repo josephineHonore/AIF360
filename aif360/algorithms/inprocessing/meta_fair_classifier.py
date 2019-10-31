@@ -1,10 +1,5 @@
 # The code for Meta-Classification-Algorithm is based on, the paper https://arxiv.org/abs/1806.06055
 # See: https://github.com/vijaykeswani/FairClassification
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
-
 import numpy as np
 
 from aif360.algorithms import Transformer
@@ -84,7 +79,7 @@ class MetaFairClassifier(Transformer):
             scores.append((t+1)/2)
 
         pred_dataset = dataset.copy()
-        pred_dataset.labels = np.array([predictions])
-        pred_dataset.scores = np.array([scores])
+        pred_dataset.labels = np.array([predictions]).T
+        pred_dataset.scores = np.array([scores]).T
 
         return pred_dataset

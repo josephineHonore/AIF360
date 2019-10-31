@@ -1,14 +1,17 @@
-# AI Fairness 360 (AIF360 v0.2.0)
+# AI Fairness 360 (AIF360 v0.2.2)
 
 [![Build Status](https://travis-ci.org/IBM/AIF360.svg?branch=master)](https://travis-ci.org/IBM/AIF360)
 [![Documentation](https://readthedocs.org/projects/aif360/badge/?version=latest)](http://aif360.readthedocs.io/en/latest/?badge=latest)
 [![PyPI version](https://badge.fury.io/py/aif360.svg)](https://badge.fury.io/py/aif360)
 
-The AI Fairness 360 toolkit is an open-source library to help detect and remove
-bias in machine learning models. The AI Fairness 360 Python package includes a
-comprehensive set of metrics for datasets and models to test for biases,
-explanations for these metrics, and algorithms to mitigate bias in datasets and
-models.
+The AI Fairness 360 toolkit is an extensible open-source library containg techniques developed by the
+research community to help detect and mitigate bias in machine learning models throughout the AI application lifecycle.
+The AI Fairness 360 Python package includes
+1) a comprehensive set of metrics for datasets and models to test for biases,
+2) explanations for these metrics, and
+3) algorithms to mitigate bias in datasets and models.
+It is designed to translate algorithmic research from the lab into the actual practice of domains as wide-ranging
+as finance, human capital management, healthcare, and education. We invite you to use it and improve it.
 
 The [AI Fairness 360 interactive experience](http://aif360.mybluemix.net/data)
 provides a gentle introduction to the concepts and capabilities. The [tutorials
@@ -55,13 +58,14 @@ Supported Configurations:
 
 | OS      | Python version |
 | ------- | -------------- |
-| macOS   | 2.7, 3.5, 3.6  |
-| Ubuntu  | 2.7, 3.5, 3.6  |
-| Windows | 3.5            |
+| macOS   | 3.5, 3.6, 3.7  |
+| Ubuntu  | 3.5, 3.6, 3.7  |
+| Windows | 3.5, 3.6, 3.7  |
 
-Installation is easiest on a Unix-like system running Python 3. See the
-[Troubleshooting](#troubleshooting) section if you have issues with other
-configurations.
+NOTE: Python 2.7 support has been **deprecated** in this version. This message
+will be removed in the next release.
+
+See the [Troubleshooting](#troubleshooting) section if you have issues.
 
 ### (Optional) Create a virtual environment
 
@@ -105,9 +109,6 @@ To install the latest stable version from PyPI, run:
 pip install aif360
 ```
 
-This package supports Python 2.7, 3.5, and 3.6. However, for Python 2, the
-`BlackBoxAuditing` package must be [installed manually](#blackboxauditing).
-
 Some algorithms require additional dependencies not included in the minimal
 installation. To use these, we recommend a full installation.
 
@@ -126,26 +127,33 @@ their respective folders as described in
 Then, navigate to the root directory of the project and run:
 
 ```bash
-pip install .
+pip install -e .
 ```
 
 #### Run the Examples
 
-To run the example notebooks, install the additional requirements as follows:
+To run the example notebooks, complete the full installation steps above. Then,
+install the additional requirements as follows:
 
 ```bash
 pip install -r requirements.txt
 ```
 
 Then, follow the [Getting Started](https://pytorch.org) instructions from
-PyTorch to download and install the latest version for your machine.
+PyTorch to download and install the latest version for your machine. With conda,
+this is simple:
+
+```bash
+# LINUX/WINDOWS
+conda install pytorch-cpu torchvision-cpu -c pytorch
+# MACOS
+conda install pytorch torchvision -c pytorch
+```
+
+For CUDA support or alternative installation, see the instructions.
 
 Finally, if you did not already, download the datasets as described in
-[aif360/data/README.md](aif360/data/README.md) but place them **in the
-appropriate sub-folder** in
-`$ANACONDA_PATH/envs/aif360/lib/python3.5/site-packages/aif360/data/raw` where
-`$ANACONDA_PATH` is the base path to your conda installation (e.g.
-`~/anaconda`).
+[aif360/data/README.md](aif360/data/README.md).
 
 ### Troubleshooting
 
@@ -158,25 +166,35 @@ In some cases, the URL is required for installation:
 
 ```bat
 # WINDOWS
-pip install --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.1.0-cp35-cp35m-win_amd64.whl
+pip install --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.14.0-cp36-cp36m-win_amd64.whl
 
 # MACOS
-pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.1.0-py3-none-any.whl
+pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.14.0-py3-none-any.whl
 
 # LINUX
-pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.1.0-cp36-cp36m-linux_x86_64.whl
+pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.14.0-cp36-cp36m-linux_x86_64.whl
 ```
-
-Substitute Python version numbers for your configuration as appropriate (Note:
-TensorFlow 1.1.0 only supports Python 3.5 officially on Windows).
 
 TensorFlow is only required for use with the
 `aif360.algorithms.inprocessing.AdversarialDebiasing` class.
 
 #### CVXPY
 
+On MacOS, you may first have to install the Xcode Command Line Tools if you
+never have previously:
+
+```sh
+xcode-select --install
+```
+
+And then, re-run:
+
+```sh
+pip install -r requirements.txt
+```
+
 On Windows, you may need to download the appropriate [Visual Studio C++
-compiler for Python](https://wiki.python.org/moin/WindowsCompilers). Then,
+compiler for Python](https://wiki.python.org/moin/WindowsCompilers#Microsoft_Visual_C.2B-.2B-_14.0_standalone:_Build_Tools_for_Visual_Studio_2017_.28x86.2C_x64.2C_ARM.2C_ARM64.29). Then,
 re-run:
 
 ```bat
@@ -189,26 +207,6 @@ for an alternate installation procedure using conda.
 
 CVXPY is only required for use with the
 `aif360.algorithms.preprocessing.OptimPreproc` class.
-
-#### BlackBoxAuditing
-
-Some additional installation is required to use
-`aif360.algorithms.preprocessing.DisparateImpactRemover` with Python 2.7. In a
-directory of your choosing, run:
-
-```bash
-git clone https://github.com/algofairness/BlackBoxAuditing
-```
-
-In the root directory of `BlackBoxAuditing`, run:
-
-```bash
-echo -n $PWD/BlackBoxAuditing/weka.jar > python2_source/BlackBoxAuditing/model_factories/weka.path
-echo "include python2_source/BlackBoxAuditing/model_factories/weka.path" >> MANIFEST.in
-pip install --no-deps .
-```
-
-This will produce a minimal installation which satisfies our requirements.
 
 ## Using AIF360
 

@@ -1,8 +1,3 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
-
 import numpy as np
 
 from aif360.algorithms import Transformer
@@ -55,10 +50,10 @@ class DisparateImpactRemover(Transformer):
             attribute must be the same.
         """
         if not self.sensitive_attribute:
-            sensitive_attribute = dataset.protected_attribute_names[0]
+            self.sensitive_attribute = dataset.protected_attribute_names[0]
 
         features = dataset.features.tolist()
-        index = dataset.feature_names.index(sensitive_attribute)
+        index = dataset.feature_names.index(self.sensitive_attribute)
         repairer = self.Repairer(features, index, self.repair_level, False)
 
         repaired = dataset.copy()
