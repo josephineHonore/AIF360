@@ -20,16 +20,16 @@ objects with sample properties (protected attributes) as the index
   - [ ] MEPS
 - [ ] Implement metrics as individual functions instead of instance methods
   - [x] Make certain metrics compatible as sklearn scorers
-  - [x] Use "groups" and "priv_group" keywords to specify protected attributes to
+  - [x] Use "prot_attr" and "priv_group" keywords to specify protected attributes to
   functions
-  - [ ] Generalized confusion matrix
+  - [x] Generalized confusion matrix
   - [ ] Sample distortion metrics
 - [ ] Make inprocessing algorithms compatible as sklearn `Estimator`s
+  - [x] Adversarial debiasing
   - [ ] **[External]** `get_feature_names()` from data preprocessing
   steps that would remove DataFrame formatting
     - [ ] [SLEP007](https://github.com/scikit-learn/enhancement_proposals/pull/17)/[SLEP008](https://github.com/scikit-learn/enhancement_proposals/pull/18) - feature names
   - [ ] Prejudice remover
-  - [ ] Adversarial debiasing
   - [ ] Meta-fair classifier
 - [ ] Make preprocessing algorithms compatible as sklearn `Transformer`s
   - [ ] **[External]** Add functionality to modify X and y
@@ -41,11 +41,9 @@ objects with sample properties (protected attributes) as the index
     - [X] Meta-estimator workaround
     - [ ] **[External]** [SLEP006](https://github.com/scikit-learn/enhancement_proposals/pull/16) - Sample properties (meta-estimator works but would be very nice to have)
 - [ ] Make postprocessing algorithms compatible
-  - [ ] **[External]** Allow for `fit(y_true, y_pred)`
-    - [ ] New SLEP? Needs a lot of thought here. Should fit on val set as well.
-  - [ ] Calibrated equalized odds postprocessing
+  - [x] Calibrated equalized odds postprocessing
+    - [x] Meta-estimator workaround again
   - [ ] Equalized odds postprocessing
   - [ ] Reject option classification
 - [ ] Miscellaneous:
-  - [ ] LIME encoder
   - [ ] Explainers
