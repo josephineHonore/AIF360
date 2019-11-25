@@ -10,3 +10,5 @@ Getting started with AIF360
 These notebooks are for the fairness workshop.
 
 [colab_workshop_adversarial_debiasing.ipynb](https://colab.research.google.com/github/josephineHonore/AIF360/blob/master/colab_examples/colab_workshop_adversarial_debiasing.ipynb): demostrates the use of adversarial in-processing algorithm to learn a fair classifier. It contains further excercises to follow up.
+
+[tutorial_medical_expenditure.ipynb](https://colab.research.google.com/github/josephineHonore/AIF360/blob/master/colab_examples/tutorial_medical_expenditure.ipynb): is a comprehensive tutorial demonstrating the interactive exploratory nature of a data scientist detecting and mitigating racial bias in a care management scenario.
